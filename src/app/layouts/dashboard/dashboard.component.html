@@ -1,0 +1,57 @@
+<mat-drawer-container class="dashboard-container" autosize>
+<!-- Sidebar-->
+
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Universidad de las ciencias de la tecnologia</p>
+      
+      
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+  <!-- This is the tree node template for leaf nodes -->
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding class="mat-tree-node-leaf">
+    <!-- use a disabled button to provide padding for tree leaf -->
+    <button mat-icon-button disabled class="mat-tree-node-button"></button>
+    <span class="mat-tree-node-label">{{node.name}}</span>
+  </mat-tree-node>
+  <!-- This is the tree node template for expandable nodes -->
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding class="mat-tree-node-expandable">
+    <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name" class="mat-tree-node-button">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    <span class="mat-tree-node-label">{{node.name}}</span>
+  </mat-tree-node>
+</mat-tree>
+      
+
+    </mat-drawer>
+
+    <!-- Sidebar-->
+  
+
+     <!-- Contenido-->
+    <div class="example-sidenav-content">
+        <mat-toolbar color="primary">
+            
+            <button  (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+              <mat-icon>menu</mat-icon>
+             
+            </button>
+            <span>"El primer paso hacia cualquier meta es creer que puedes lograrlo."</span>
+            <span class="example-spacer"></span>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+              <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+              <mat-icon>share</mat-icon>
+            </button>
+          </mat-toolbar>
+          <div class="p-4">
+          <app-user></app-user>
+        </div>
+    </div>
+      <!-- Contenido-->
+  </mat-drawer-container>
+
+

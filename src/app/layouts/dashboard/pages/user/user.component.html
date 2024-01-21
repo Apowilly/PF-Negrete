@@ -1,0 +1,67 @@
+<div class="mb-4">
+  <app-user-formulario [usuarioEditando]="usuarioEditando" (userSubmitter)="onUserSubmitted($event)"></app-user-formulario>
+ 
+
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let User"> {{User.id}} </td>
+  </ng-container>
+
+ 
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre Completo</th>
+    <td mat-cell *matCellDef="let User"> {{User|fullName}} </td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Correo </th>
+    <td mat-cell *matCellDef="let User"> {{User.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="telefono">
+    <th mat-header-cell *matHeaderCellDef> Telefono </th>
+    <td mat-cell *matCellDef="let User"> {{User.telefono}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="perfil">
+    <th mat-header-cell *matHeaderCellDef> Perfiles </th>
+    <td mat-cell *matCellDef="let User"> {{User.perfil}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="password">
+    <th mat-header-cell *matHeaderCellDef> Clave </th>
+    <td mat-cell *matCellDef="let User"> {{User.password}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ 
+  <ng-container matColumnDef="borrarUsuario">
+    <th mat-header-cell *matHeaderCellDef> Borrar Registro </th>
+    <td mat-cell *matCellDef="let User"> <div class= "col-3 flex justify-content-end "> <button (click)="borrarUsuario(User.id) " mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>delete</mat-icon>
+    </button></div>
+     </td>
+  </ng-container>
+
+  <ng-container matColumnDef="editarUsuario">
+    <th mat-header-cell *matHeaderCellDef> Editar Registro </th>
+    <td mat-cell *matCellDef="let user">
+      <div class="col-3 flex justify-content-end">
+        <button (click)="editarUsuario(user.id)" mat-fab color="accent" aria-label="">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+    </td>
+  </ng-container>
+  
+
+</table>
+
+
+

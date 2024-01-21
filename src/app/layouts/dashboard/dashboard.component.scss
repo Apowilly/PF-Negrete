@@ -1,0 +1,60 @@
+.example-sidenav {
+    width: 300px;
+    background-color: #1a405f; /* Verde suave para el fondo del drawer */
+    color: #fcfcfa; /* Color de texto blanco para mayor contraste */
+  }
+  
+  
+  .example-sidenav p {
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+
+  
+  .mat-tree-node {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mat-tree-node:hover {
+    background-color: #c4dfe6; /* Color de fondo más oscuro al hacer hover */
+  }
+  
+  .mat-tree-node-label {
+    margin-left: 12px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .mat-tree-node-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mat-tree-node-button:hover {
+    background-color: #ffccbb; /* Color de fondo más oscuro al hacer hover */
+  }
+  
+  .mat-icon-rtl-mirror {
+    transform: scaleX(-1);
+  }
+  
+  /* Estilos para nodos expandibles y hojas */
+  .mat-tree-node-expandable {
+    background-color: #5ea8a7 /* Color para nodos expandibles */
+  }
+  
+  .mat-tree-node-leaf {
+    background-color: #3a5199; /* Color para hojas */
+  }
+  
