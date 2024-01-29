@@ -45,20 +45,12 @@ const TREE_DATA: FoodNode[] = [
     name: 'Administración',
     children: [
       {
-        name: 'Centro de Pagos',
-        children: [
-          { name: 'Matrículas' },
-          { name: 'Pagos de la Carrera' },
-          { name: 'Pagos Anuales' },
-        ],
+        name: 'Cursos',
+        
       },
       {
-        name: 'Agendar hora con Profesor',
-        children: [
-          { name: 'Matemáticas: Juan Castro' },
-          { name: 'Ciencias Políticas: Maria Tereza' },
-          { name: 'Tecnología 1: Rosa Castro' },
-        ],
+        name: 'Inscripciones',
+        
       },
       {
         name: 'Certificados',

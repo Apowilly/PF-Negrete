@@ -1,6 +1,6 @@
   import { Component, EventEmitter, Output ,Input, SimpleChanges} from '@angular/core';
   import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../models';
+  import { User } from '../../models';
   
   @Component({
     selector: 'app-user-formulario',

@@ -1,0 +1,29 @@
+
+<div>
+    <h2>Listado de Cursos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID Curso</th>
+          <th>Asignatura</th>
+          <th>Profesor</th>
+          <th>Horarios</th>
+          <th>Cantidad de Alumnos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let curso of cursos">
+          <td>{{ curso.idCurso }}</td>
+          <td>{{ curso.asignatura }}</td>
+          <td>{{ curso.profesor }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let horario of curso.horarios">{{ horario }}</li>
+            </ul>
+          </td>
+          <td>{{ curso.cantidadAlumnos }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -7,12 +7,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'; 
 import { UserModule } from './pages/user/user.module';
 import {MatTreeModule} from '@angular/material/tree'; 
+import { CursosModule } from './pages/cursos/cursos.module';
+import { InscripcionModule } from './pages/inscripcion/inscripcion.module';
 
 
 
 @NgModule({
   declarations: [ DashboardComponent],
-  imports: [CommonModule, MatSidenavModule,MatButtonModule,MatToolbarModule,MatIconModule, UserModule,MatTreeModule ],
+  imports: [CommonModule, MatSidenavModule,MatButtonModule,MatToolbarModule,MatIconModule, UserModule,MatTreeModule, CursosModule,InscripcionModule],
   exports:[DashboardComponent],
  
 

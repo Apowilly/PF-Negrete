@@ -12,10 +12,9 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon'; 
 import { SharedModule } from '../../../../shared/shared.module';
 
-
 @NgModule({
   declarations: [UserComponent, UserFormularioComponent],
-  imports: [CommonModule,MatTableModule ,MatButtonModule,MatFormFieldModule,MatInputModule,MatSelectModule,ReactiveFormsModule,MatTreeModule,MatIconModule,SharedModule],
+  imports: [CommonModule,MatTableModule ,MatButtonModule,MatFormFieldModule,MatInputModule,MatSelectModule,ReactiveFormsModule,MatTreeModule,MatIconModule,SharedModule,],
   exports: [UserComponent],
 })
 export class UserModule { }
