@@ -1,0 +1,10 @@
+<div *ngIf="cursos" class="user-profile">
+    <h1>Cursos </h1>
+    <div class="user-details">
+      <p><strong>ID Curso:</strong> {{ cursos.idCurso }}</p>
+      <p><strong>asignatura:</strong>  {{ cursos.asignatura }}</p>
+      <p><strong>profesor:</strong>  {{ cursos.profesor }}</p>
+      <p><strong>horarios:</strong>  {{  cursos.horarios | date  }}</p>
+      <p><strong>cantidadAlumnos:</strong>  {{cursos.cantidadAlumnos }}</p>
+      
+</div>

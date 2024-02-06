@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Usuario</h1>
+
+<div mat-dialog-content class="mat-typography">
+<div class="col-12">
+<form [formGroup]="cursosForm" class="grid formgrid">
+    <mat-form-field class="w-full">
+        <mat-label>asignatura</mat-label>
+        <input formControlName="asignatura" matInput/>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+        <mat-label>profesor</mat-label>
+        <input formControlName="profesor" matInput/>
+    </mat-form-field>
+
+   
+    <mat-form-field>
+        <mat-label>Horarios </mat-label>
+        <input matInput formControlName="horarios" [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+      
+  
+    <mat-form-field class="w-full">
+        <mat-label>cantidad</mat-label>
+        <input formControlName="cantidadAlumnos" matInput/>
+    </mat-form-field>
+
+
+
+</form>
+</div> 
+</div>
+
+
+   
+<div mat-dialog-actions>
+    <button mat-dialog-close  mat-button>Cancelar</button>
+    <button (click)="onSave()">Guardar</button>
+</div>

@@ -1,7 +1,8 @@
-export interface Curso {
+export interface CursoModel {
     idCurso: number;
     asignatura: string;
     profesor: string;
-    horarios: string[];
+    horarios: Date;
     cantidadAlumnos: number;
+    
   }

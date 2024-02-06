@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from './models';
+import { LoadingService } from '../../../../core/services/loading.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -8,57 +10,44 @@ import { User } from './models';
 })
 export class UserComponent {
  
-    displayedColumns: string[] = ['id', 'nombre','email','telefono','perfil','password','borrarUsuario','editarUsuario'];
-    dataSource: User[]= [
-
-      {
-        id: 1,
-      nombre: 'Juan Pedro',
-      apellido: 'Torres Gonzalez',
-      email: 'jpg@ciisa.cl',
-      telefono:'+56940427333',
-      password: '12345',
-      perfil: 'administrador',
-    
-      
-      },
-      {
-        id: 2,
-      nombre: 'Margarita ',
-      apellido: 'Perez Gonzalez',
-      email: 'mpg@ciisa.cl',
-      telefono:'+56940427233',
-      password: '123456',
-      perfil: 'usuario',
-      
-      }
-
-     
-
-    ];
+    displayedColumns: string[] = ['id', 'nombre','email','telefono','perfil','password','borrarUsuario','editarUsuario','verusuario'];
+    dataSource: User[]= [];
 
     usuarioEnEdicion: boolean = false
 
     usuarioEditando? : User;
+
+    constructor(
+      private loadingService: LoadingService, private userService: UserService) { }
+
+      
+  ngOnInit(): void {
+    this.userService.getUsuarios().subscribe({ 
+      next: (u) => this.dataSource = u
+    })
+  }
   
     onUserSubmitted(ev:User): void{
       //validamos si editamos o creamos
       if (this.usuarioEnEdicion) {
         console.log("editando..." , ev.id)
-        this.dataSource =  this.dataSource.map(m=> {
-            if (m.id === ev.id) {
-              return ev
-            }
-            return m
-        });
+        this.userService.editarUsuario(ev).subscribe({ 
+          next: (u) => this.dataSource = u
+        })
         this.usuarioEnEdicion = false;
       } else {
-        this.dataSource = [... this.dataSource,{...ev,id: new Date().getTime()}]; 
+        //this.dataSource = [... this.dataSource,{...ev,id: new Date().getTime()}]; 
+        this.userService.agregarUsuario({...ev,id: new Date().getTime()}).subscribe({ 
+          next: (u) => this.dataSource = u
+        })
       }
     }
    
     borrarUsuario(id: number): void {
-      this.dataSource = this.dataSource.filter(user => user.id !== id);
+      //this.dataSource = this.dataSource.filter(user => user.id !== id);
+      this.userService.borrarUsuario(id).subscribe({ 
+        next: (u) => this.dataSource = u
+      })
     }
 
     editarUsuario(id: number): void {

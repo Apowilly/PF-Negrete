@@ -11,6 +11,6 @@ import { InscripcionComponent } from './inscripcion.component';
   imports: [
     CommonModule
   ],
-  exports:[InscripcionModule]
+  exports:[InscripcionComponent]
 })
 export class InscripcionModule { }

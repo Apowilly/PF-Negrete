@@ -4,24 +4,15 @@
     <mat-drawer #drawer class="example-sidenav" mode="side">
       <p>Universidad de las ciencias de la tecnologia</p>
       
-      
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-  <!-- This is the tree node template for leaf nodes -->
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding class="mat-tree-node-leaf">
-    <!-- use a disabled button to provide padding for tree leaf -->
-    <button mat-icon-button disabled class="mat-tree-node-button"></button>
-    <span class="mat-tree-node-label">{{node.name}}</span>
-  </mat-tree-node>
-  <!-- This is the tree node template for expandable nodes -->
-  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding class="mat-tree-node-expandable">
-    <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name" class="mat-tree-node-button">
-      <mat-icon class="mat-icon-rtl-mirror">
-        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-      </mat-icon>
-    </button>
-    <span class="mat-tree-node-label">{{node.name}}</span>
-  </mat-tree-node>
-</mat-tree>
+  <mat-nav-list>
+    <a routerLink="home" mat-list-item>Inico</a>
+    <a routerLink="inscripciones"mat-list-item>inscripciones</a>  
+    <a routerLink="cursos" mat-list-item>Cursos</a>  
+    <a routerLink="user"mat-list-item>Usuarios</a>  
+    <a routerLink=""mat-list-item>Cerrar Seccion</a>  
+
+  </mat-nav-list>
+  
       
 
     </mat-drawer>
@@ -49,7 +40,7 @@
           </mat-toolbar>
           <div class="p-4">
          <!--<app-user></app-user>-->
-       <app-cursos></app-cursos>
+       <router-outlet></router-outlet>
         </div>
     </div>
       <!-- Contenido-->

@@ -1,0 +1,31 @@
+<div *ngIf="usuario" class="user-profile">
+    <h1>Perfil de Usuario</h1>
+    <div class="user-details">
+      <p><strong>ID:</strong> {{ usuario.id }}</p>
+      <p><strong>Nombre:</strong>  {{ usuario.nombre }}</p>
+      <p><strong>Apellido:</strong>  {{ usuario.apellido }}</p>
+      <p><strong>Email:</strong>  {{ usuario.email }}</p>
+      <p><strong>Teléfono:</strong>  {{ usuario.telefono }}</p>
+      <p><strong>Perfil:</strong> {{ usuario.perfil }}</p>
+</div>
+
+  <div *ngIf="usuario" class="flex align-items-center justify-content-center m-5  ">
+    Cursos Inscritos: 
+  </div>
+  <table mat-table *ngIf="usuario && dataSource" [dataSource]="dataSource" class="mat-elevation-z8 m-1 p-3">
+
+    <ng-container matColumnDef="id">
+       <th mat-header-cell *matHeaderCellDef> id </th>
+       <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+     </ng-container>
+   
+     <ng-container matColumnDef="nombre">
+       <th mat-header-cell *matHeaderCellDef> Nombre Curso </th>
+       <td mat-cell *matCellDef="let user"> {{ user.asignatura }} </td>
+     </ng-container>
+   
+   
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>

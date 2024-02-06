@@ -11,10 +11,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatTreeModule} from '@angular/material/tree'; 
 import {MatIconModule} from '@angular/material/icon'; 
 import { SharedModule } from '../../../../shared/shared.module';
+import { UserDetalleComponent } from './components/user-detalle/user-detalle.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [UserComponent, UserFormularioComponent],
-  imports: [CommonModule,MatTableModule ,MatButtonModule,MatFormFieldModule,MatInputModule,MatSelectModule,ReactiveFormsModule,MatTreeModule,MatIconModule,SharedModule,],
+  declarations: [UserComponent, UserFormularioComponent, UserDetalleComponent],
+
+  imports: [CommonModule,MatTableModule ,MatButtonModule,
+            MatFormFieldModule,MatInputModule,MatSelectModule,
+            ReactiveFormsModule,MatTreeModule,MatIconModule,
+            SharedModule,RouterModule],
+            
   exports: [UserComponent],
 })
 export class UserModule { }

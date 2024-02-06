@@ -6,7 +6,7 @@ export interface User {
     password: string;
     telefono: string;
     perfil: string;
-    
+    cursos?: any[]
     
 }
 
