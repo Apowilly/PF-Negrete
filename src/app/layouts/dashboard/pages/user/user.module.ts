@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { SharedModule } from '../../../../shared/shared.module';
 import { UserDetalleComponent } from './components/user-detalle/user-detalle.component';
 import { RouterModule } from '@angular/router';
+import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
   declarations: [UserComponent, UserFormularioComponent, UserDetalleComponent],
@@ -20,7 +21,7 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule,MatTableModule ,MatButtonModule,
             MatFormFieldModule,MatInputModule,MatSelectModule,
             ReactiveFormsModule,MatTreeModule,MatIconModule,
-            SharedModule,RouterModule],
+            SharedModule,RouterModule,UserRoutingModule],
             
   exports: [UserComponent],
 })

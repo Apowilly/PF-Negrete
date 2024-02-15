@@ -5,11 +5,10 @@
       <p>Universidad de las ciencias de la tecnologia</p>
       
   <mat-nav-list>
-    <a routerLink="home" mat-list-item>Inico</a>
-    <a routerLink="inscripciones"mat-list-item>inscripciones</a>  
+    <a routerLink="home" mat-list-item>Inico</a>  
     <a routerLink="cursos" mat-list-item>Cursos</a>  
-    <a routerLink="user"mat-list-item>Usuarios</a>  
-    <a routerLink=""mat-list-item>Cerrar Seccion</a>  
+    <a routerLink="user" mat-list-item>Usuarios</a>  
+    <a (click)="logout()" mat-list-item>Cerrar Seccion</a>  
 
   </mat-nav-list>
   

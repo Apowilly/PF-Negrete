@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { DashboardModule } from './layouts/dashboard/dashboard.module';
-import { LoginModule } from './layouts/authregistro/pages/login/login.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -15,7 +15,7 @@ import { LoginModule } from './layouts/authregistro/pages/login/login.module';
     AppComponent,
    
   ],
-  imports: [BrowserModule,AppRoutingModule, BrowserAnimationsModule,DashboardModule,LoginModule,MatProgressSpinnerModule],
+  imports: [BrowserModule,AppRoutingModule, BrowserAnimationsModule,DashboardModule,MatProgressSpinnerModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 

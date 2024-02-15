@@ -13,9 +13,9 @@
 
   <table mat-table [dataSource]="cursos" class="mat-elevation-z8">
    
-    <ng-container matColumnDef="idCurso">
+    <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>ID Curso</th>
-      <td mat-cell *matCellDef="let Cursos">{{ Cursos.idCurso }}</td>
+      <td mat-cell *matCellDef="let Cursos">{{ Cursos.id }}</td>
     </ng-container>
 
     <ng-container matColumnDef="asignatura">
@@ -28,11 +28,6 @@
       <td mat-cell *matCellDef="let Cursos">{{ Cursos.profesor }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="horarios">
-      <th mat-header-cell *matHeaderCellDef>Horarios</th>
-    <td mat-cell *matCellDef="let Cursos">{{ Cursos.horarios | date }}</td>
-    </ng-container>
-
     <ng-container matColumnDef="cantidadAlumnos">
       <th mat-header-cell *matHeaderCellDef>Cantidad de Alumnos</th>
       <td mat-cell *matCellDef="let Cursos" class="text-center">{{ Cursos.cantidadAlumnos }}</td>
@@ -41,7 +36,7 @@
     <ng-container matColumnDef="vercursos">
       <th mat-header-cell *matHeaderCellDef> Ver Cursos </th>
       <td mat-cell *matCellDef="let Cursos"> <div class= "col-3 flex justify-content-end ">
-         <button [routerLink]="Cursos.idCurso" mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+         <button [routerLink]="Cursos.id" mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
         <mat-icon>visibility</mat-icon>
       </button></div>
        </td>
@@ -52,7 +47,7 @@
   <th mat-header-cell *matHeaderCellDef> Borrar Cursos </th>
   <td mat-cell *matCellDef="let Cursos">
     <div class="col-3 d-flex justify-content-end">
-      <button (click)="onDelete(Cursos.idCurso)" mat-mini-fab color="primary" aria-label="Eliminar">
+      <button (click)="onDelete(Cursos.id)" mat-mini-fab color="primary" aria-label="Eliminar">
         <mat-icon>delete</mat-icon>
       </button>
     </div>
@@ -70,8 +65,8 @@
     </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['idCurso', 'asignatura', 'profesor', 'horarios', 'cantidadAlumnos','borrarCurso','editarCurso','vercursos']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['idCurso', 'asignatura', 'profesor', 'horarios', 'cantidadAlumnos','borrarCurso','editarCurso','vercursos'];"></tr>
+    <tr mat-header-row *matHeaderRowDef="['id', 'asignatura', 'profesor',  'cantidadAlumnos','borrarCurso','editarCurso','vercursos']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['id', 'asignatura', 'profesor',  'cantidadAlumnos','borrarCurso','editarCurso','vercursos'];"></tr>
 
 
   </table>

@@ -1,0 +1,70 @@
+{
+  "courses": [
+    {
+      "asignatura": "erjjjjj",
+      "profesor": "t",
+      "horarios": "2024-02-21T03:00:00.000Z",
+      "cantidadAlumnos": "11",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "asignatura": "Tecnologias Software",
+      "profesor": "Dr. Maria",
+      "cantidadAlumnos": "25"
+    },
+    {
+      "id": "3",
+      "asignatura": "Taller computacion",
+      "profesor": "Dr. Juan Carlos",
+      "cantidadAlumnos": "15"
+    },
+    {
+      "asignatura": "William",
+      "profesor": "t",
+      "horarios": "2024-02-21T03:00:00.000Z",
+      "cantidadAlumnos": "11",
+      "id": "4"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "nombre": "Juan Pedro",
+      "apellido": "Torres Gonzalez",
+      "email": "jpg@ciisa.cl",
+      "telefono": "+56940427333",
+      "password": "12345",
+      "perfil": "administrador",
+      "cursos": [
+        {
+          "id": "1",
+          "asignatura": "Matemáticas Avanzadas"
+        },
+        {
+          "id": "2",
+          "asignatura": "Tecnologias Software"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "nombre": "Margarita",
+      "apellido": "Perez Gonzalez",
+      "email": "mpg@ciisa.cl",
+      "telefono": "+56940427233",
+      "password": "123456",
+      "perfil": "usuario",
+      "cursos": []
+    },
+    {
+      "nombre": "we",
+      "apellido": "we",
+      "email": "jua.cl@.cl",
+      "telefono": "355",
+      "perfil": "administrador",
+      "password": "1",
+      "id": "3"
+    }
+  ]
+}

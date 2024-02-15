@@ -9,19 +9,27 @@ import { UserModule } from './pages/user/user.module';
 import {MatTreeModule} from '@angular/material/tree'; 
 import { CursosModule } from './pages/cursos/cursos.module';
 import { InscripcionModule } from './pages/inscripcion/inscripcion.module';
-import { RouterModule } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { UserComponent } from './pages/user/user.component';
 import {MatListModule} from '@angular/material/list'; 
-import { CursosComponent } from './pages/cursos/cursos.component';
-import { InscripcionComponent } from './pages/inscripcion/inscripcion.component';
-import { UserDetalleComponent } from './pages/user/components/user-detalle/user-detalle.component';
-import { CursosDetalleComponent } from './pages/cursos/components/cursos-detalle/cursos-detalle.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 
 @NgModule({
-  declarations: [ DashboardComponent, HomeComponent],
-  imports: [CommonModule, MatSidenavModule,MatButtonModule,MatToolbarModule,MatListModule,MatIconModule, UserModule,MatTreeModule, CursosModule,InscripcionModule,RouterModule.forChild([{
+  declarations: [ DashboardComponent],
+  imports: [CommonModule, MatSidenavModule,MatButtonModule,MatToolbarModule,MatListModule,MatIconModule, 
+    UserModule,MatTreeModule, CursosModule,InscripcionModule,
+    DashboardRoutingModule
+  ],
+  exports:[DashboardComponent],
+ 
+
+  
+})
+export class DashboardModule { }
+
+/**
+ * 
+ * 
+ *  RouterModule.forChild([{
 
     
       path: 'home',
@@ -53,10 +61,6 @@ import { CursosDetalleComponent } from './pages/cursos/components/cursos-detalle
  
 
 
-  ])],
-  exports:[DashboardComponent],
- 
-
+  ]
   
-})
-export class DashboardModule { }
+ */

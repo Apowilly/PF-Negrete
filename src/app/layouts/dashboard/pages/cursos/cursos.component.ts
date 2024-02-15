@@ -37,7 +37,7 @@ export class CursosComponent implements OnInit, OnDestroy {
       (result)=>{
          console.log("result", result)
 
-        this.dataService.editarCurso({...result, idCurso: cursos.idCurso}).subscribe({
+        this.dataService.editarCurso({...result, id: cursos.id}).subscribe({
           next: (cursos)=>{ console.log(cursos); this.cursos = cursos},
         })
       }

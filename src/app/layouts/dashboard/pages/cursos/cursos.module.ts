@@ -14,16 +14,15 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule, } from '@angular/material/core';
 import { CursosDetalleComponent } from './components/cursos-detalle/cursos-detalle.component';
 import { RouterModule } from '@angular/router';
+import { CursosRoutingModule } from './cursos-routing.module';
 
 
 @NgModule({
-  declarations: [
-    CursosComponent,
-    FoursComponent,
-    CursosDetalleComponent
-  ],
+  declarations: [CursosComponent,FoursComponent,CursosDetalleComponent ],
   imports: [
-    CommonModule,MatTableModule,MatIconModule,MatListModule,MatButtonModule,MatDialogModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule,MatDatepickerModule,MatNativeDateModule,RouterModule,
+    CommonModule,MatTableModule,MatIconModule,MatListModule,MatButtonModule,
+    MatDialogModule,MatFormFieldModule,MatInputModule,ReactiveFormsModule,
+    MatDatepickerModule,MatNativeDateModule,RouterModule,CursosRoutingModule,
   ],
   exports:[CursosComponent]
 })
