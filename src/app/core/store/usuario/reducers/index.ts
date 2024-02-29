@@ -18,7 +18,7 @@ export const usuarioReducer = createReducer<UserState>(
     on(usuarioActions.usuario, (state, action) => {
             return {
                 ...state,
-                ...action
+                user: action
             }
     })
 )

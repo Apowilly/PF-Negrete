@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { User } from './models';
 import { LoadingService } from '../../../../core/services/loading.service';
 import { UserService } from './services/user.service';
+import { Store } from '@ngrx/store';
+import { selectPerfil } from '../../../../core/store/usuario/selectors';
 
 @Component({
   selector: 'app-user',
@@ -17,8 +19,15 @@ export class UserComponent {
 
     usuarioEditando? : User;
 
+    perfil?: string = ''
+
     constructor(
-      private loadingService: LoadingService, private userService: UserService) { }
+      private loadingService: LoadingService, private userService: UserService,
+      private store:Store) {
+        this.store.select(selectPerfil).subscribe({
+          next: (p) => this.perfil = p
+        }) 
+       }
 
       
   ngOnInit(): void {

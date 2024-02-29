@@ -104,8 +104,5 @@ export class UserService {
       );
   }
 
-  private obtenerNuevoId(): number {
-    const ids = this.usuarios.map(c => c.id);
-    return ids.length > 0 ? Math.max(...ids) + 1 : 1;
-  }
+
 }

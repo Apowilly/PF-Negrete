@@ -55,7 +55,7 @@
     <th mat-header-cell *matHeaderCellDef> Borrar Registro </th>
     <td mat-cell *matCellDef="let User">
        <div class= "col-3 flex justify-content-end "> 
-        <button (click)="borrarUsuario(User.id) " mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+        <button (click)="borrarUsuario(User.id) " mat-mini-fab color="primary" *ngIf="perfil === 'administrador' ">
       <mat-icon>delete</mat-icon>
     </button></div>
      </td>
@@ -67,7 +67,7 @@
     <th mat-header-cell *matHeaderCellDef> Editar Registro </th>
     <td mat-cell *matCellDef="let user">
       <div class="col-3 flex justify-content-end">
-        <button (click)="editarUsuario(user.id)" mat-mini-fab color="accent" aria-label="">
+        <button (click)="editarUsuario(user.id)" mat-mini-fab color="accent" *ngIf="perfil === 'administrador' ">
           <mat-icon>edit</mat-icon>
         </button>
       </div>

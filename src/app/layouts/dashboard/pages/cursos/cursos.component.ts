@@ -5,6 +5,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { FoursComponent } from './fours/fours.component';
+import { Store } from '@ngrx/store';
+import { selectPerfil } from '../../../../core/store/usuario/selectors';
 
 @Component({
   selector: 'app-cursos',
@@ -14,8 +16,13 @@ import { FoursComponent } from './fours/fours.component';
 export class CursosComponent implements OnInit, OnDestroy {
   cursos: CursoModel[] = [];
   private unsubscribe$ = new Subject<void>();
+  perfil?: string = ''
 
-  constructor(private dataService: DataService, public dialog: MatDialog) {}
+  constructor(private dataService: DataService, public dialog: MatDialog, private store:Store) {
+    this.store.select(selectPerfil).subscribe({
+      next: (p) => this.perfil = p
+    })  
+  }
   
   onCreate():void{
     this.dialog.open(FoursComponent).afterClosed().subscribe({

@@ -8,7 +8,7 @@
     <a routerLink="home" mat-list-item>Inico</a>  
     <a routerLink="cursos" mat-list-item>Cursos</a>  
     <a routerLink="user" mat-list-item>Usuarios</a>  
-    <a routerLink="inscripciones" mat-list-item>inscripciones</a>  
+    <a routerLink="inscripciones" *ngIf="perfil === 'administrador' " mat-list-item>inscripciones</a>  
     <a (click)="logout()" mat-list-item>Cerrar Seccion</a>  
 
   </mat-nav-list>
@@ -30,10 +30,12 @@
             </button>
             <span>"El primer paso hacia cualquier meta es creer que puedes lograrlo."</span>
             <span class="example-spacer"></span>
-            <span class="mr-3" *ngIf=" usuario$ | async; let u"> 
-            <!--   {{ u. ? user?.firstName + " " + user?.lastName : 'Usuario no encontrado' }}  -->
-                {{u | json}}
+            <div *ngIf=" usuario$ | async; let u">
+              <span class="mr-3" > 
+                {{ u.user ? u.user?.nombre + " " + u.user?.apellido : 'Usuario no encontrado' }} 
               </span>
+              <p class="m-0">Perfil: {{ u.user?.perfil }}</p>
+            </div>
           </mat-toolbar>
           <div class="p-4">
          <!--<app-user></app-user>-->

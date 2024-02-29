@@ -6,7 +6,7 @@ import { AuthService } from '../authregistro/services/auth.service';
 import { Store } from '@ngrx/store';
 import { UserState } from '../../core/store/usuario/reducers';
 import { Observable } from 'rxjs';
-import { selectUsuario } from '../../core/store/usuario/selectors';
+import { selectPerfil, selectUsuario } from '../../core/store/usuario/selectors';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,13 +16,16 @@ import { selectUsuario } from '../../core/store/usuario/selectors';
 export class DashboardComponent {
   showFiller = false;
   usuario$: Observable<UserState | null>;
+  perfil?: string = ''
 
   constructor(private router: Router,
               private store:Store,
               private authService : AuthService ){
 
     this.usuario$ = this.store.select(selectUsuario)
-
+    this.store.select(selectPerfil).subscribe({
+      next: (p) => this.perfil = p
+    })             
   }
 
   logout(): void{
