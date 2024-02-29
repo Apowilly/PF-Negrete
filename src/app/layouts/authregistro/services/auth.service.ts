@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../dashboard/pages/user/models';
 import { Router } from '@angular/router';
-import { delay, finalize, map, of } from 'rxjs';
+import { delay, finalize, map, of, tap } from 'rxjs';
 import { LoadingService } from '../../../core/services/loading.service';
+import { UserService } from '../../dashboard/pages/user/services/user.service';
+import { Store } from '@ngrx/store';
+import { usuarioActions } from '../../../core/store/usuario/actions';
 
 interface LoginData {
-  email: null | string;
-  password: null | string;
+  email:  string;
+  password:  string;
 }
 
 @Injectable({
@@ -16,10 +19,57 @@ export class AuthService {
 
 authUser: User | null = null
 
-constructor(private router: Router, private Loading: LoadingService){
+  constructor(private router: Router, 
+    private Loading: LoadingService,  
+    private usuario: UserService,
+    private store: Store,
+    ){
 
+  }
+
+  private setAuthUser(user: User): void {
+    this.authUser = user;
+    this.store.dispatch(usuarioActions.usuario(user))
+    localStorage.setItem('token', user.email);
+  }
+
+  login(data: LoginData) { 
+    return this.usuario.verificarUsuario(data.email, data.password).subscribe({
+      next: (response) => {
+        console.log("Resp",!!response[0])
+          if (!!response[0]) {
+            this.setAuthUser(response[0]);
+            this.router.navigate(['dashboard', 'home']);
+          } else {
+            console.log('Email o password invalidos');
+          }
+      }
+    });
+  }
+
+  logout(): void {
+    this.router.navigate(['auth', 'login']);
+    localStorage.removeItem('token');
+  }
+
+  verifyToken(){
+    this.Loading.setIsLoading(true);
+    console.log(localStorage.getItem('token'));
+    
+    this.usuario.verificarEmail(localStorage.getItem('token') ?? '').subscribe({
+      next: (response) => {
+        console.log("verifyToken",!!response[0])
+        if (!!response[0]) {
+          this.setAuthUser(response[0]);
+        } 
+      }
+    });
+
+    return of(this.usuario).pipe(delay(1000))
+  }  
 }
 
+/* 
   login(data:LoginData): void{
     const MOCK_USER = {
       id: 48,
@@ -47,10 +97,6 @@ constructor(private router: Router, private Loading: LoadingService){
     localStorage.removeItem('token');
   }
 
-  verifyToken(){
-    this.Loading.setIsLoading(true);
-    return of(localStorage.getItem('token')).pipe(delay(1000), map((response) => !! response),
-    finalize(() => this.Loading.setIsLoading(false))
-    );
-  }  
-  }
+  
+
+*/

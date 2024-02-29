@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, catchError, delay, finalize, mergeMap, of, throwError } from 'rxjs';
+import { Observable, catchError, delay, finalize, map, mergeMap, of, throwError } from 'rxjs';
 import { LoadingService } from '../../../../../core/services/loading.service';
 import { User } from '../models';
 import { HttpClient } from '@angular/common/http';
@@ -80,6 +80,28 @@ export class UserService {
       mergeMap(() => this.getUsuarios()),
       finalize(() => this.loadingService.setIsLoading(false))
     )
+  }
+
+  verificarUsuario(email: string, password: string): Observable<User[] | []> {
+    this.loadingService.setIsLoading(true);
+    const url = 'http://localhost:3000/users?email='+email+'&password='+password;
+    console.log(url)
+    return this.httpClient.get<User[]>(url)
+      .pipe(
+        delay(1000),
+        finalize(() => this.loadingService.setIsLoading(false))
+      );
+  }
+
+  verificarEmail(email: string): Observable<User[] | []> {
+    this.loadingService.setIsLoading(true);
+    const url = 'http://localhost:3000/users?email='+email;
+    console.log(url)
+    return this.httpClient.get<User[]>(url)
+      .pipe(
+        delay(1000),
+        finalize(() => this.loadingService.setIsLoading(false))
+      );
   }
 
   private obtenerNuevoId(): number {

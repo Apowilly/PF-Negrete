@@ -25,9 +25,8 @@ export class LoginComponent {
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
     } else {
-      console.log(this.loginForm.value);
-     //this.authService.login(this.loginForm.value).subscribe();
-     this.authService.login(this.loginForm.value)
+      console.log("Formulario",this.loginForm.value);
+       this.authService.login(this.loginForm.value)
     }
   }
 

@@ -41,7 +41,7 @@ export class DataService {
 
 
   agregarCurso(curso: CursoModel) {this.loadingService.setIsLoading(true)
-    const id = new Date().getTime()
+    const id = String(new Date().getTime());
     //this.cursos = [...this.cursos, curso]
     //return this.getCursos();
     //console.log("id", id)

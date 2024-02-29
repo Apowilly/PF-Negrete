@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InscripcionComponent } from './pages/inscripcion/inscripcion.component';
+
 import { CursosDetalleComponent } from './pages/cursos/components/cursos-detalle/cursos-detalle.component';
 import { UserDetalleComponent } from './pages/user/components/user-detalle/user-detalle.component';
 import { adminGuard } from '../../core/guards/admin.guard';
@@ -31,6 +31,14 @@ const routes: Routes = [
   loadChildren:() =>
   import('./pages/home/home.module').then((m)=> m.HomeModule),
 },
+
+{
+  path: 'inscripciones',
+  loadChildren:() =>
+  import('./pages/inscripciones/inscripciones.module').then((m)=> m.InscripcionesModule),
+},
+
+
 ];
 
 @NgModule({
