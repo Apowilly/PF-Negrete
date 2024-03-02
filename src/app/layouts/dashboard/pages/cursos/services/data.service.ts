@@ -65,15 +65,19 @@ export class DataService {
   }
 
   
-  borrarCurso(id: number){this.loadingService.setIsLoading(true)
-    this.cursos = this.cursos.filter((el) => el.id != id);
+  borrarCurso(id: number){
     //return this.getCursos();
-    return this.httpClient.delete<CursoModel>('http://localhost:3000/courses/' + id)
+    if(confirm('¿Esta seguro de Eliminar el Curso?')){ this.loadingService.setIsLoading(true)
+      this.cursos = this.cursos.filter((el) => el.id != id);
+      return this.httpClient.delete<CursoModel>('http://localhost:3000/courses/' + id)
     .pipe(
       delay(1000), 
       mergeMap(() => this.getCursos()),
       finalize(() => this.loadingService.setIsLoading(false))
-    )
+    )   }
+    return this.getCursos()
+    
+    
   }
 
   private obtenerNuevoId(): number {

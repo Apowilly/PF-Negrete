@@ -71,15 +71,18 @@ export class UserService {
 
   }
   
-  borrarUsuario(id: number){this.loadingService.setIsLoading(true)
+  borrarUsuario(id: number){
    // this.usuarios = this.usuarios.filter((el) => el.id != id);
     //return this.getUsuarios();
-    return this.httpClient.delete<User>('http://localhost:3000/users/'+id)
+    if(confirm('¿Esta seguro de Eliminar el Usuario?')){ 
+      return this.httpClient.delete<User>('http://localhost:3000/users/'+id)
     .pipe(
       delay(1000), 
       mergeMap(() => this.getUsuarios()),
       finalize(() => this.loadingService.setIsLoading(false))
-    )
+    )  }
+    this.loadingService.setIsLoading(true)
+    return this.getUsuarios()
   }
 
   verificarUsuario(email: string, password: string): Observable<User[] | []> {

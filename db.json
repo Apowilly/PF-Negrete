@@ -1,13 +1,6 @@
 {
   "courses": [
     {
-      "asignatura": "erjjjjj",
-      "profesor": "t",
-      "horarios": "2024-02-21T03:00:00.000Z",
-      "cantidadAlumnos": "11",
-      "id": "1"
-    },
-    {
       "id": "2",
       "asignatura": "Tecnologias Software",
       "profesor": "Dr. Maria",
@@ -20,10 +13,10 @@
       "cantidadAlumnos": "15"
     },
     {
-      "asignatura": "William",
-      "profesor": "t",
-      "horarios": "2024-02-21T03:00:00.000Z",
-      "cantidadAlumnos": "11",
+      "asignatura": "Lenguaje ",
+      "profesor": "Maria Becerra",
+      "horarios": "2024-03-12T03:00:00.000Z",
+      "cantidadAlumnos": "10",
       "id": "4"
     }
   ],
@@ -58,13 +51,39 @@
       "cursos": []
     },
     {
-      "nombre": "we",
-      "apellido": "we",
+      "nombre": "wilmer",
+      "apellido": "Estradda",
       "email": "jua.cl@.cl",
       "telefono": "355",
       "perfil": "administrador",
       "password": "1",
       "id": "3"
+    },
+    {
+      "id": "1709404047232",
+      "nombre": "Samaray",
+      "apellido": "torres",
+      "email": "sara@test.cl",
+      "telefono": "122222",
+      "perfil": "usuario",
+      "password": "0000"
+    }
+  ],
+  "inscriptions": [
+    {
+      "id": "1",
+      "userId": "1709404047232",
+      "courseId": "3"
+    },
+    {
+      "id": "2",
+      "userId": "3",
+      "courseId": "2"
+    },
+    {
+      "id": "3",
+      "userId": "3",
+      "courseId": "4"
     }
   ]
 }

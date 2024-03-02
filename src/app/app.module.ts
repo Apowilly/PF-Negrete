@@ -25,6 +25,7 @@ import { EffectsModule } from '@ngrx/effects';
             DashboardModule,
             MatProgressSpinnerModule,
             HttpClientModule,
+            
             StoreModule.forRoot(appReducer, {}), 
             StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }), EffectsModule.forRoot([])],
   providers: [],
